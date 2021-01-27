@@ -9,7 +9,7 @@ public class Notes {
     private  int nombreDeNotes = 0;
     private float noteMaximale = 0;
     public float noteMinimale = 0;
-    public int moyenneDesNotes = 0;
+    public float moyenneDesNotes = 0;
 
     public Notes(int capacite){
         this.capacite = capacite;
@@ -52,11 +52,16 @@ public class Notes {
         return noteMaximale;
     }
 
-    public float moyenne(){
+    private float somme(){
+        float somme = 0;
         for (float nombre : notes ) {
-            moyenneDesNotes += nombre;
+            somme += nombre;
         }
-          moyenneDesNotes /= nombre();
+        return somme;
+    }
+
+    public float moyenne(){
+          moyenneDesNotes = somme() / nombre();
         return moyenneDesNotes;
     }
 
