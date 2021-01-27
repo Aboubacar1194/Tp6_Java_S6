@@ -9,7 +9,7 @@ public class Notes {
     private  int nombreDeNotes = 0;
     private float noteMaximale = 0;
     public float noteMinimale = 0;
-    public float moyenneDesNotes = 0;
+    public int moyenneDesNotes = 0;
 
     public Notes(int capacite){
         this.capacite = capacite;
