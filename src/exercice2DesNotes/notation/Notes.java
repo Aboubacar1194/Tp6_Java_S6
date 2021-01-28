@@ -1,5 +1,7 @@
 package exercice2DesNotes.notation;
 
+import java.util.Arrays;
+
 public class Notes {
 
     public static final int NOTE_MIN = 0 ;
@@ -16,14 +18,18 @@ public class Notes {
         notes = new float[capacite];
     }
 
-    public boolean ajout(float note){
+    public boolean ajoute(float note){
         boolean OK = false;
-        if ( (nombreDeNotes < capacite) && (NOTE_MIN <= note ) && ( note <= NOTE_MAX) ){
+        if ( (nombreDeNotes < capacite) && noteAutorisee(note) ){
             OK = true;
             notes[nombreDeNotes] = note;
             ++ nombreDeNotes;
         }
         return OK;
+    }
+
+    private boolean noteAutorisee(float note){
+        return (NOTE_MIN < note ) && ( note <= NOTE_MAX) ;
     }
 
     public boolean capaciteAtteinte(){
@@ -44,6 +50,7 @@ public class Notes {
     }
 
     public float max(){
+
         noteMaximale = notes[0];
         for (float nombre : notes ) {
             if ( nombre >= noteMaximale )
